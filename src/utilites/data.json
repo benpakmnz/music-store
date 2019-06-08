@@ -1,0 +1,86 @@
+{
+  "vinyl_records": [
+    {
+      "genre": "Rock",
+      "artist_image": "https://live.staticflickr.com/2754/4226435386_f2aa37fe3a.jpg",
+      "artist_name": "Nirvana",
+      "name": "Nirvana",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Nirvana_-_You_Know_You%27re_Right.jpg",
+      "tracks_number": 14,
+      "quantity_in_stock": 2,
+      "quantity": 7
+    },
+    {
+      "genre": "Indie",
+      "artist_image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Arctic_Monkeys.jpg",
+      "artist_name": "Arctic Monkeys",
+      "name": "AM",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/%22AM%27%22_%28Arctic_Monkeys%29.jpg",
+      "tracks_number": 12,
+      "quantity_in_stock": 6,
+      "quantity": 10
+    },
+    {
+      "genre": "Pop",
+      "artist_image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Amy_Winehouse_f4962007_crop.jpg",
+      "artist_name": "Amy Winehouse",
+      "name": "Back To Black",
+      "image": "https://live.staticflickr.com/219/509500547_b019f82353.jpg",
+      "tracks_number": 11,
+      "quantity_in_stock": 8,
+      "quantity": 8
+    },
+    {
+      "genre": "Rock",
+      "artist_image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Doors_electra_publicity_photo.JPG",
+      "artist_name": "The Doors",
+      "name": "Morrison Hotel",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/98/Doors_-_Morrison_Hotel.jpg",
+      "tracks_number": 11,
+      "quantity_in_stock": 1,
+      "quantity": 13
+    },
+    {
+      "genre": "Jazz",
+      "artist_image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Miles_Davis_by_Palumbo.jpg",
+      "artist_name": "Miles Davis",
+      "name": "Kind Of Blue",
+      "image": "https://live.staticflickr.com/7503/15642906150_119878c75c_b.jpg",
+      "tracks_number": 5,
+      "quantity_in_stock": 4,
+      "quantity": 10
+    }
+  ],
+  "cds": [
+    {
+      "genre": "Rock",
+      "artist_image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/QueenPerforming1977.jpg",
+      "artist_name": "Queen",
+      "name": "Greatest Hits",
+      "image": "https://live.staticflickr.com/5018/5549864193_90c6c41b3b_b.jpg",
+      "tracks_number": 17,
+      "quantity_in_stock": 3,
+      "quantity": 4
+    },
+    {
+      "genre": "R&B",
+      "artist_image": "https://live.staticflickr.com/8506/8521348253_fe23ace4cf_z.jpg",
+      "artist_name": "Beyoncé",
+      "name": "Beyoncé",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Beyonc%C3%A9_-_Beyonc%C3%A9.svg/1024px-Beyonc%C3%A9_-_Beyonc%C3%A9.svg.png",
+      "tracks_number": 14,
+      "quantity_in_stock": 8,
+      "quantity": 8
+    },
+    {
+      "genre": "Jazz",
+      "artist_image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Ray_Charles_classic_piano_pose.jpg",
+      "artist_name": "Ray Charles",
+      "name": "The Great Ray Charles",
+      "image": "https://live.staticflickr.com/3100/2552573614_11e9fbcbd2_b.jpg",
+      "tracks_number": 8,
+      "quantity_in_stock": 2,
+      "quantity": 11
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+export const STORE_INITIAL_DATA = 'STORE_INITIAL_DATA';
