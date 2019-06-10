@@ -1,3 +1,7 @@
 export{ 
-    storeInitialData
+    storeInitialData,
+    filterList,
+    filterReset,
+    itemRemove,
+    itemDuplicate
 } from './itemsHandler';

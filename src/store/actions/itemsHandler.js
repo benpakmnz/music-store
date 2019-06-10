@@ -2,6 +2,9 @@ import * as actionTypes from './actionTypes';
 
 
 export const InitialData = (item , itemType) => {
+    item.artist_name = item.artist_name.toLowerCase()
+    item.name = item.name.toLowerCase()
+        
     return {
         type: actionTypes.STORE_INITIAL_DATA,
         payload: {
@@ -18,6 +21,45 @@ export const storeInitialData = (list , itemType) => {
                 return(
                 dispatch(InitialData(item, itemType)))
                 })
+    }
+}
+
+export const filterList = (search, listType) => {
+    const filterActionType = 
+        listType === 'Vinyl Records' ? actionTypes.FILTER_RECORDS_LIST : actionTypes.FILTER_CDS_LIST
+    return {
+        type: filterActionType,
+        search
+        
+    }
+}
+
+export const filterReset = (listType) => {
+    return {
+        type: actionTypes.FILTER_RESET,
+        listType
+    }
+}
+
+export const itemRemove = (lsType, index) => {
+    return {
+        type: actionTypes.REMOVE,
+        payload: {
+            lsType,
+            index
+
+        }
+    }
+}
+
+export const itemDuplicate = (lsType, index) => {
+    return {
+        type: actionTypes.DUPLICATE,
+        payload: {
+            lsType,
+            index
+
+        }
     }
 }
 

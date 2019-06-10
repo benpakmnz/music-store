@@ -1,1 +1,6 @@
 export const STORE_INITIAL_DATA = 'STORE_INITIAL_DATA';
+export const FILTER_RECORDS_LIST = 'FILTER_RECORDS_LIST';
+export const FILTER_CDS_LIST = 'FILTER_CDS_LIST';
+export const FILTER_RESET = 'FILTER_RESET';
+export const REMOVE = 'REMOVE';
+export const DUPLICATE = 'DUPLICATE'
