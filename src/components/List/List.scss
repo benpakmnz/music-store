@@ -1,0 +1,16 @@
+.list-container{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: right;
+    width: 75vw;
+    margin: auto;
+}
+
+@media (max-width: 600px) {
+    .list-container{
+        flex-flow: nowrap;
+        width: 100%;
+        overflow: scroll -webkit-paged-x;
+        
+    }
+}

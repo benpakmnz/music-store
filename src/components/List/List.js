@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Item from '../Item/Item';
 import SearchBar from '../SearchBar/SearchBar';
 
+import './List.scss'
+
 
 class List extends Component{
   handleDelete = (lsType, index) => {
@@ -17,7 +19,7 @@ class List extends Component{
       <div>
         <h2 style={{color: 'rgba(0, 0, 0, 0.85)'}}>{this.props.title}</h2>
         <SearchBar listType = {this.props.title === 'Vinyl Records' ? 'Vinyl Records' : 'Cd'}/>
-        <div style={{display: 'flex', flexFlow: 'wrap', justifyContent: 'right', width: '75vw', margin: 'auto'}}>
+        <div className= 'list-container'>
           {this.props.listItems.map((item, index) => 
             <div key = {index}>
             <Item
