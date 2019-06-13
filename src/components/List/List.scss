@@ -6,6 +6,45 @@
     margin: auto;
 }
 
+.MuiGridList-root List-gridList-1{
+    margin: 0;
+}
+
+.MuiGridListTile-tile{
+    border-radius: 10px;
+}
+
+.MuiContainer-root{
+    max-width: 1084px;
+}
+
+.MuiGridListTile-root {
+    margin: 10px 5px;
+}
+
+.MuiCardMedia-root{
+    border-radius: 20px; 
+}
+
+.MuiPaper-root{
+    border-radius: 20px!important; 
+}
+
+.dialogBox{
+    position: absolute;
+    background: #7d7d7df0;
+    width: -webkit-fill-available;
+    height: 100%;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.MuiFab-extended.MuiFab-sizeSmall{
+    width: 35px;
+}
+
+
+
 @media (max-width: 600px) {
     .list-container{
         flex-flow: nowrap;

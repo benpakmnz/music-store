@@ -21,18 +21,14 @@ render(){
                 this.props.filteredRecordLs : 
                 this.props.initialRecordItems
               } 
-            title= 'Vinyl Records'
-            remove= {this.props.itemRemove}
-            dulipcate= {this.props.itemDuplicate}/>              
+            title= 'Vinyl Records'/>              
       <List listItems=             
               {
                 this.props.filteredCdLs.length > 0 ? 
                 this.props.filteredCdLs : 
                 this.props.initialCdItems
               } 
-            title= 'Cds'
-            remove= {this.props.itemRemove}
-            dulipcate= {this.props.itemDuplicate}/>
+            title= 'Cds'/>
     </div>
   );
 }
@@ -51,8 +47,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
       storeInitialData: (list, type) => dispatch(actionCreators.storeInitialData(list, type)),
-      itemRemove: (lsType, index) => dispatch(actionCreators.itemRemove(lsType, index)),
-      itemDuplicate: (lsType, index) => dispatch(actionCreators.itemDuplicate(lsType, index)) 
   }
 }
 

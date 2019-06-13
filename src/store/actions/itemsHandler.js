@@ -16,8 +16,7 @@ export const InitialData = (item , itemType) => {
 
 export const storeInitialData = (list , itemType) => {
     return dispatch => {   
-            list.map((item) => {
-                console.log(itemType) 
+            list.map((item) => { 
                 return(
                 dispatch(InitialData(item, itemType)))
                 })
