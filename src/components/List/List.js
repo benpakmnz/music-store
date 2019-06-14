@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Item from '../Item/Item5';
+import Item from '../Item/Item';
 import SearchBar from '../SearchBar/SearchBar';
 import { Typography }  from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
