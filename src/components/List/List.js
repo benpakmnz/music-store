@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import Item from '../Item/Item';
+import Item from '../Item/Item5';
 import SearchBar from '../SearchBar/SearchBar';
+import { Typography }  from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { GridList , Container}  from '@material-ui/core';
 import './List.scss'
 
 const styles = theme => ({
+  root:{
+    margin: '20px 0'
+  },
   gridList: {
+    justifyContent: 'space-between',
     [theme.breakpoints.down('xs')]: {
       flexWrap: 'nowrap',
-      
     },
     [theme.breakpoints.up('sm')]: {
       flexWrap: 'wrap',
-      margin: 'unset!important'
     },
   }
 });
 
 class List extends Component{
-  
-
   handleDelete = (lsType, index) => {
     this.props.remove(lsType, index)
   }
@@ -32,13 +33,11 @@ class List extends Component{
   render(){ 
     const { classes } = this.props;
     return (
-      <Container m={0} maxWidth={false}>
-        
-        <h2 style={{color: 'rgba(0, 0, 0, 0.85)'}}>{this.props.title}</h2>
+      <Container className={classes.root}>
+        <Typography variant="h2" color="commonBlack">{this.props.title}</Typography>
         <SearchBar listType = {this.props.title === 'Vinyl Records' ? 'Vinyl Records' : 'Cd'}/>
-
-        <GridList className={classes.gridList} spacing={20}>
-        {this.props.listItems.map((item, index) => 
+        <GridList className={classes.gridList}>
+            {this.props.listItems.map((item, index) => 
             <Item 
             listTitle = {this.props.title}
             key = {index}

@@ -1,55 +1,25 @@
-.list-container{
-    display: flex;
-    flex-flow: wrap;
-    justify-content: right;
-    width: 75vw;
-    margin: auto;
-}
-
-.MuiGridList-root List-gridList-1{
-    margin: 0;
-}
-
-.MuiGridListTile-tile{
-    border-radius: 10px;
-}
-
-.MuiContainer-root{
-    max-width: 1084px;
-}
-
-.MuiGridListTile-root {
-    margin: 10px 5px;
-}
-
-.MuiCardMedia-root{
-    border-radius: 20px; 
-}
-
-.MuiPaper-root{
-    border-radius: 20px!important; 
-}
-
 .dialogBox{
     position: absolute;
     background: #7d7d7df0;
-    width: -webkit-fill-available;
-    height: 100%;
+    width: inherit;
+    height: inherit;
     border-radius: 20px;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
 }
 
-.MuiFab-extended.MuiFab-sizeSmall{
-    width: 35px;
+.MuiGridList-root{
+    &:after {
+        content: "";
+        width: 380px;
+      }
 }
 
-
-
-@media (max-width: 600px) {
-    .list-container{
-        flex-flow: nowrap;
-        width: 100%;
-        overflow: scroll -webkit-paged-x;
-        
-    }
+.MuiInputBase-input{
+    font-size: 14px!important;
+    color: black!important;
 }
