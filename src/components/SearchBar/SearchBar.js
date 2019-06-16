@@ -5,17 +5,7 @@ import * as actionCreators from '../../store/actions/index';
 import { Button }  from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles';
-
-const styles = () => ({
-    root:{
-        marginTop: 20
-    },
-    button:{
-        borderRadius: 20,
-        margin: 2
-    },
-  });
-  
+import styles from './SearchBarStyle';
 
 class SearchBar extends Component{
     constructor(props){
@@ -41,9 +31,9 @@ class SearchBar extends Component{
     render(){
         const { classes } = this.props;
         return(
-            <Grid container className={classes.root}  justify="space-between" alignItems="center" m='50px'>
+            <Grid container className={classes.root}>
                 <Grid item xs={6} sm={9} md={10}>
-                    <Input fullWidth
+                    <Input fullWidth className={classes.input} 
                         value={this.state.inputValue}
                         onChange={event => this.updateInputValue(event)}
                         placeholder = {`Search for ${this.props.listType}`}
@@ -54,8 +44,7 @@ class SearchBar extends Component{
                 </Grid>
                 <Grid item> 
                     <Button 
-                        size="small" 
-                        variant="contained" 
+                        size="small" variant="contained"
                         className={classes.button} 
                         color="primary" 
                         onClick = {event => this.onSubmit(event)}>search
@@ -68,7 +57,6 @@ class SearchBar extends Component{
                         color="primary" 
                         onClick = {() => this.props.filterReset(this.props.listType)}>reset
                     </Button>
-                
                 </Grid>
             </Grid>
         )

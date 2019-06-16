@@ -9,6 +9,8 @@ const initialState = {
 
 const itemsListReducer = (state= initialState, action) => {
     switch(action.type){
+        // store all data from Json file via componentDidMount from App.js
+        // separte to two lists initialCdItems and initialRecordItems
         case actionTypes.STORE_INITIAL_DATA:
             if(action.payload.itemType === 'records'){ 
                 return ({
@@ -21,10 +23,11 @@ const itemsListReducer = (state= initialState, action) => {
                     initialCdItems: [action.payload.item, ...state.initialCdItems]
                 })
             }
+        // filtering action- filtering to names in the initial list that been passed from 
+        // the action file 
         case actionTypes.FILTER_RECORDS_LIST:
-            const searchedRecord = action.search.toLowerCase();
             const itemsToFilter = state.initialRecordItems.filter(item => {
-                return (item.artist_name.includes(searchedRecord) || item.name.includes(searchedRecord))
+                return (item.artist_name.includes(action.searchKey) || item.name.includes(action.searchKey))
             })
             itemsToFilter.length <=0 ? alert('no items as been found'): alert(`${itemsToFilter.length} items found`)
 
@@ -43,13 +46,15 @@ const itemsListReducer = (state= initialState, action) => {
                         ...state,
                         filteredCdLs: itemsToFilterCd
                     }
-  
+        // reset filtering   
         case actionTypes.FILTER_RESET:
             return {
                 ...state,
                 filteredRecordLs: action.listType === 'Vinyl Records' ? [] : state.filteredRecordLs,
                 filteredCdLs: action.listType === 'Cd' ? [] : state.filteredCdLs
-            } 
+            }
+
+        // remove items 
         case actionTypes.REMOVE:
                 let updateList = []
                 const recordFilterdCase = state.initialRecordItems.indexOf(state.filteredRecordLs[action.payload.index])
@@ -78,6 +83,8 @@ const itemsListReducer = (state= initialState, action) => {
                 filteredCdLs:action.payload.lsType === 'Cds' ?
                     state.filteredCdLs.filter((item, i) => i !== action.payload.index) : state.filteredCdLs
             } 
+
+        // duplicate items
         case actionTypes.DUPLICATE:
                 let updateFilter = '' 
                 if(state.filteredRecordLs.length > 0 && action.payload.lsType === 'Vinyl Records'){

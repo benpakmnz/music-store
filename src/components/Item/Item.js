@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
-import {Box , Avatar, Typography , Chip , Grid }  from '@material-ui/core';
+import { CardMedia , Avatar, Typography , Chip , Grid }  from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { Button }  from '@material-ui/core';
 import * as actionCreators from '../../store/actions/index';
 import FileCopy from '@material-ui/icons/FileCopy';
-// import '../List/List.scss'
-import './Item.scss'
-
-const styles = theme => ({
-    button:{
-        margin: '5px',
-        borderRadius: '20px',
-        width: '100px',
-    },
-    avatar:{
-        height: 50,
-        width: 50,
-    },
-});
+import styles from './ItemStyle'
 
 class Item extends Component {
     constructor(props){
@@ -49,51 +36,61 @@ class Item extends Component {
     dialogBox = () => {
         const { classes } = this.props;
         return(
-        <div className={"dialogBox"} display={this.state.dialogBoxVisable? 'flex' : 'none'}>
-            <Button color="primary" className={classes.button} variant="contained" aria-label="Add" onClick= {() => this.dialogBoxHandler('duplicate' , this.props.listTitle , this.props.i)}>
-            <FileCopy /></Button>
-            <Button color="default" className={classes.button} variant="contained" aria-label="Add" onClick= {() => this.dialogBoxHandler('remove' , this.props.listTitle , this.props.i)}>delete</Button>
-        </div>
+        <Grid className={ classes.dialogBox }>
+            <Button color="primary" 
+                    className={classes.button} 
+                    variant="contained" aria-label="Add" 
+                    onClick= {() => this.dialogBoxHandler('duplicate' , this.props.listTitle , this.props.i)}>
+            <FileCopy/>
+            </Button>
+            <Button color="default" 
+                    className={classes.button}
+                    variant="contained" 
+                    aria-label="Add" 
+                    onClick= {() => this.dialogBoxHandler('remove' , this.props.listTitle , this.props.i)}>
+                        delete
+            </Button>
+        </Grid>
       )
     }
 
     render(){
-        console.log(this.props.listType)
         const { classes } = this.props;
-        const itemType = this.props.listType === 'Vinyl Records'
+        const itemType = this.props.listType === 'Cds'
         return(
-            <div className={itemType ? 'itemContainer' : 'itemContainer itemCd'}
-                style={{backgroundImage: `url(${this.props.image}`}}
+        <li>   
+            <CardMedia
+                className= {classes.cardMedia}
+                style={itemType ? {borderRadius: '50%'} : {borderRadius: 20}} 
+                image={this.props.image}
                 onMouseEnter={this.dialogBoxOpen} 
                 onClick={this.dialogBoxOpen} 
-                onMouseLeave={this.dialogBoxClose}
-            >
+                onMouseLeave={this.dialogBoxClose}>
                 {this.state.dialogBoxVisable? this.dialogBox() : null}
-                <Grid container style={{width: itemType ? null: 150}} justify="space-between" alignItems="center">
-                    <Typography color='textPrimary' className={classes.typography} variant="body1">
-                        {this.props.genre}
-                    </Typography>
+                <Grid className={ itemType ? `${classes.itemData} ${classes.itemCdData}` : classes.itemData} >
+                    <Typography color='textPrimary' variant="body1">{this.props.genre}</Typography>
                     <Avatar className={classes.avatar} src={this.props.artist_image}/>
                 </Grid>
                 <Grid align="center">
-                    <Typography color='textPrimary' className={classes.typographyf} variant="h2">
-                    {this.props.artist_name.split(' ')
+                    <Typography color='textPrimary' variant="h2">
+                        {this.props.artist_name.split(' ')
                         .map(word => word[0].toUpperCase()+ word.slice(1))
                         .join(' ')}
                     </Typography>
-                    <Typography color='textPrimary' className={classes.typography} variant="subtitle1">
+                    <Typography color='textPrimary' variant="subtitle1">
                         {this.props.name.split(' ')
                         .map(word => word[0].toUpperCase()+ word.slice(1))
                         .join(' ')}
-                    </Typography> 
+                    </Typography>
                 </Grid>
-                <Grid container style={{width: itemType ? null: 150}} justify="space-between" alignItems="center">
-                        <Chip label={this.props.tracks_number} className={classes.chip}/>
-                        <Chip label={`${this.props.quantity_in_stock}/${this.props.quantity}`} className={classes.chip}/>
-                    </Grid>             
-            </div>
-        )
-    }
+                <Grid className={ itemType ? `${classes.itemData} ${classes.itemCdData}` : classes.itemData} >
+                    <Chip label={this.props.tracks_number} className={classes.chip}/>
+                    <Chip label={`${this.props.quantity_in_stock}/${this.props.quantity}`} className={classes.chip}/>
+                </Grid>
+            </CardMedia>
+        </li>
+    )
+}
 }
 
 const mapDispatchToProps = dispatch => {
