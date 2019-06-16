@@ -1,23 +1,11 @@
-.dialogBox{
-    position: absolute;
-    background: #7d7d7df0;
-    width: inherit;
-    height: inherit;
-    border-radius: 20px;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    right: 0;
-}
 
-.MuiGridList-root{
-    &:after {
-        content: "";
-        width: 380px;
-      }
-}
+
+// .MuiGridList-root{
+//     &:after {
+//         content: "";
+//         width: 380px;
+//       }
+// }
 
 .MuiInputBase-input{
     font-size: 14px!important;

@@ -39,6 +39,7 @@ class List extends Component{
         <GridList className={classes.gridList}>
             {this.props.listItems.map((item, index) => 
             <Item 
+            listType={this.props.title}
             listTitle = {this.props.title}
             key = {index}
             i = {index}

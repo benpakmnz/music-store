@@ -16,15 +16,13 @@ render(){
       <List listItems= { 
         this.props.filteredRecordLs.length > 0 ? 
         this.props.filteredRecordLs : 
-        this.props.initialRecordItems
-      } 
-            title= 'Vinyl Records'/>              
+        this.props.initialRecordItems} 
+        title= 'Vinyl Records'/>              
       <List listItems={
         this.props.filteredCdLs.length > 0 ? 
         this.props.filteredCdLs : 
-        this.props.initialCdItems
-              } 
-            title= 'Cds'/>
+        this.props.initialCdItems} 
+        title= 'Cds'/>
     </div>
   );
 }
