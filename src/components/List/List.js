@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+
+// import components
 import Item from '../Item/Item';
 import SearchBar from '../SearchBar/SearchBar';
 
-import { Typography }  from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import { GridList , Container}  from '@material-ui/core';
+// import styles
+import { Typography, withStyles , GridList , Container }  from '@material-ui/core';
 import styles from './ListStyle'; 
 import './List.scss'
 

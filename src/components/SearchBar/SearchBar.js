@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {InputAdornment , Input , Grid }  from '@material-ui/core';
-import * as actionCreators from '../../store/actions/index';
-import { Button }  from '@material-ui/core';
+
+// import styles
+import {InputAdornment , Input , Grid, withStyles, Button }  from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import { withStyles } from '@material-ui/core/styles';
 import styles from './SearchBarStyle';
+
+// import redux
+import * as actionCreators from '../../store/actions/index';
+import { connect } from 'react-redux';
 
 class SearchBar extends Component{
     constructor(props){
@@ -14,13 +16,14 @@ class SearchBar extends Component{
             inputValue: ''
         }
     }
-
+// chatching and storing input value
     updateInputValue(evt) {
         this.setState({
           inputValue: evt.target.value
         });
     }
-
+// this.props.filterList - dispatch actions
+// reset state input value
     onSubmit = () => {
         this.props.filterList(this.state.inputValue, this.props.listType)
         this.setState({

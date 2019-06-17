@@ -1,63 +1,45 @@
 import React, { Component } from 'react';
-import { CardMedia , Avatar, Typography , Chip , Grid, Button }  from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import FileCopy from '@material-ui/icons/FileCopy';
-import styles from './ItemStyle';
-import SimpleModal from '../Modal/SimpleModal'
 
+// import components
+import SimpleModal from '../Modal/SimpleModal';
+import DialogBox from './DialogBox';
+
+// import styles
+import { CardMedia, Avatar, Typography, Chip, Grid, withStyles }  from '@material-ui/core';
+import styles from './ItemStyle';
 
 class Item extends Component {
     constructor(props){
         super(props);
         this.state= {
             dialogBoxVisable: false,
-            modalType: '',
-            open: false,
-            checked: false
+            modalType: null,
         }
     }
+    // set modal type that will also handle it to render 
     modalOpen = (type) => {
-        this.setState({  modalType: type, open: true })
+        this.setState({  modalType: type })
     }
-
+    // set modal state type to null that will also handle to be removed
     modalClose = () => {
-        this.setState({  open: false })
+        this.setState({ modalType: null })
     }
-    dialogBoxOpen = () => {
-        this.setState({ dialogBoxVisable: true })
+    // switch dialog state to be render/removed
+    dialogBoxHandle = (boolean) => {
+        this.setState({ dialogBoxVisable: boolean})
     }
-    dialogBoxClose = () => {
-        this.setState({ dialogBoxVisable: false })
-    }
-
-    dialogBox = () => {
-        const { classes } = this.props;
-        return(
-        <Grid className={ classes.dialogBox }>
-            <Button color="primary" 
-                    className={classes.button} 
-                    variant="contained" aria-label="Add" 
-                    onClick={() => this.modalOpen('duplicate')}>
-                    <FileCopy/>
-            </Button>
-            <Button color="default" 
-                    className={classes.button}
-                    variant="contained" 
-                    aria-label="Add" 
-                    onClick={() => this.modalOpen('remove')}>
-                        delete
-            </Button>
-        </Grid>
-      )
-    }
-   
+ 
     render(){
         const { classes } = this.props;
-        const itemType = this.props.listType === 'Cds'
+        // shortcut to ternery operator
+        const itemType = this.props.listType === 'Cds';
+        // upper case names
+        const artistName = this.props.artist_name.split(' ').map(word => word[0].toUpperCase()+ word.slice(1)).join(' ');
+        const itemName = this.props.name.split(' ').map(word => word[0].toUpperCase()+ word.slice(1)).join(' ')
         return(
                 
         <li>
-            {this.state.open ?
+            {this.state.modalType ?
             <SimpleModal 
                 close={this.modalClose}
                 modalType={this.state.modalType}
@@ -67,28 +49,24 @@ class Item extends Component {
                 name={this.props.name}
                 artist_name={this.props.artist_name}
                 /> : null}
-             <CardMedia
+            <CardMedia
                 className= {classes.cardMedia}
                 style={itemType ? {borderRadius: '50%', alignItems: 'center'} : {borderRadius: 20}} 
                 image={this.props.image}
-                onMouseEnter={this.dialogBoxOpen} 
-                onClick={this.dialogBoxOpen} 
-                onMouseLeave={this.dialogBoxClose}>
-                {this.state.dialogBoxVisable? this.dialogBox() : null}
+                onMouseEnter={()=> this.dialogBoxHandle(true)} 
+                onClick={()=> this.dialogBoxHandle(true)} 
+                onMouseLeave={()=> this.dialogBoxHandle(false)}>
+                {this.state.dialogBoxVisable? <DialogBox modalOpen={this.modalOpen}/> : null}
                 <Grid className={ itemType ? `${classes.itemData} ${classes.itemCdData}` : classes.itemData} >
                     <Typography color='textPrimary' variant="body1">{this.props.genre}</Typography>
                     <Avatar className={classes.avatar} src={this.props.artist_image}/>
                 </Grid>
                 <Grid align="center">
                     <Typography color='textPrimary' variant="h2">
-                        {this.props.artist_name.split(' ')
-                        .map(word => word[0].toUpperCase()+ word.slice(1))
-                        .join(' ')}
+                        {artistName}
                     </Typography>
                     <Typography color='textPrimary' variant="subtitle1">
-                        {this.props.name.split(' ')
-                        .map(word => word[0].toUpperCase()+ word.slice(1))
-                        .join(' ')}
+                        {itemName}
                     </Typography>
                 </Grid>
                 <Grid className={ itemType ? `${classes.itemData} ${classes.itemCdData}` : classes.itemData} >

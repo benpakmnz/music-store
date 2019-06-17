@@ -1,11 +1,13 @@
 import React, { Component , Fragment } from 'react';
-import { Avatar, Typography, Grid, IconButton, Box, Modal, Button }  from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/index';
+
+// import styles
+import { Avatar, Typography, Grid, IconButton, Box, Modal, Button ,withStyles }  from '@material-ui/core';
 import styles from './SimpleModalStyle';
 import CloseIcon from '@material-ui/icons/Close';
 
+// import redux
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/index';
 
 class SimpleModal extends Component {
     constructor(props){
@@ -14,48 +16,54 @@ class SimpleModal extends Component {
             open: true,
         }
     }
-
+    
+// this.props.itemRemove, this.props.itemDuplicate - dispatch actions
+// this.props.close - function passed from parent component (Item)
     dialogBoxHandler = (handleType) => {
         if(handleType === 'remove'){
             this.props.itemRemove(this.props.listTitle , this.props.indexItem) 
             this.props.close()
         }else{ 
-        this.props.itemDuplicate(this.props.listTitle , this.props.indexItem)
+            this.props.itemDuplicate(this.props.listTitle , this.props.indexItem)
         }
     }
-  
+// dynamic items to be rendered into modal   
     modalMode = (modalType) => {
         const { classes } = this.props;
         switch(modalType){
           case 'remove':
             return(
-                    <Fragment>
-                        <Button color="primary" 
-                                className={classes.button} 
-                                variant="contained" aria-label="Add" 
-                                onClick={() => 
-                                    this.dialogBoxHandler('remove')}>
-                                        yes
-                        </Button>
-                        <Button color="primary" 
-                                variant="outlined" 
-                                aria-label="Add" 
-                                className={classes.button} 
-                                onClick={this.props.close}>no
-                        </Button>
-                    </Fragment> 
+                <Fragment>
+                    <Button 
+                        color="primary" 
+                        className={classes.button} 
+                        variant="contained" aria-label="Add" 
+                        onClick={() => this.dialogBoxHandler('remove')}>
+                        yes
+                    </Button>
+                    <Button 
+                        color="primary" 
+                        variant="outlined" 
+                        aria-label="Add" 
+                        className={classes.button} 
+                        onClick={this.props.close}>
+                        no
+                    </Button>
+                </Fragment> 
             )
             case 'duplicate':
                 this.dialogBoxHandler('duplicate')
                 return(
-                    <Button color="primary" 
-                            className={classes.button} 
-                            variant="contained" aria-label="Add" 
-                            onClick={this.props.close}>thanxxxx
+                    <Button 
+                        color="primary" 
+                        className={classes.button} 
+                        variant="contained" aria-label="Add" 
+                        onClick={this.props.close}>
+                        thanxxxx
                     </Button>
                     )
-              default:
-                 break;
+            default:
+                break;
         }
       }
 
@@ -75,9 +83,7 @@ class SimpleModal extends Component {
                         <Grid>
                         <Typography align="center" variant="h2">
                             {this.props.modalType === 'remove'?
-                            'Are you sure you would like to remove' 
-                            : 
-                            'you have just duplicate:'}
+                            'Are you sure you would like to remove' : 'you have just duplicate:'}
                         </Typography>
                         <Typography align="center" variant="body1">
                             {this.props.artist_name} | {this.props.name} 
