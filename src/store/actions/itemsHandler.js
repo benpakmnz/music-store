@@ -27,7 +27,6 @@ export const storeInitialData = (list , itemType) => {
 }
 // filtering action:
 // lowering case names to make sure all items names are looking the same
-// *********************************************
 export const filterList = (search, listType) => {
     const searchKey = search.toLowerCase();
     const filterActionType = 

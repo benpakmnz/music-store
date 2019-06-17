@@ -25,7 +25,7 @@ const itemsListReducer = (state= initialState, action) => {
             }
         // filtering action- filtering to names in the initial list that been passed from 
         // the action file 
-        case actionTypes.FILTER_RECORDS_LIST:
+         case actionTypes.FILTER_RECORDS_LIST:
             const itemsToFilter = state.initialRecordItems.filter(item => {
                 return (item.artist_name.includes(action.searchKey) || item.name.includes(action.searchKey))
             })
@@ -36,9 +36,8 @@ const itemsListReducer = (state= initialState, action) => {
                 filteredRecordLs: itemsToFilter
             }
             case actionTypes.FILTER_CDS_LIST:
-                    const searchedCd = action.search.toLowerCase();
                     const itemsToFilterCd = state.initialCdItems.filter(item => {
-                        return (item.artist_name.includes(searchedCd) || item.name.includes(searchedCd))
+                        return (item.artist_name.includes(action.searchKey) || item.name.includes(action.searchKey))
                     })
                     itemsToFilterCd.length <=0 ? alert('no items as been found'): alert(`${itemsToFilterCd.length} items found`)
         
