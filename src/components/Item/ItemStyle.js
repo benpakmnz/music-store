@@ -6,7 +6,6 @@ export default theme => ({
     },
     cardMedia: {
         justifyContent: 'space-between',
-        alignItems: 'center',
         position: 'relative',
         flexDirection: 'column',
         height: 'inherit',
@@ -16,9 +15,9 @@ export default theme => ({
         backgroundBlendMode: 'soft-light',
         display: 'flex',
         boxShadow: '0 10px 30px 0 rgba(207, 217, 230, 0.5), 10px 10px 30px 0 #e8ecf1',
-        [theme.breakpoints.down('xs')]: {height: '55vh',width: '91vw'},
-        [theme.breakpoints.up('xs')]: {height: '55vh',width: '92vw'},
-        [theme.breakpoints.up('sm')]: {height: 400, width: '380px', marginRight: 0},
+        [theme.breakpoints.down('xs')]: {height: '53vh',width: '91vw'},
+        [theme.breakpoints.up('xs')]: {height: '52vh',width: '92vw'},
+        [theme.breakpoints.up('sm')]: {height: 400, width: 380, marginRight: 0},
         margin: '0 20px 30px 0' 
     },
 
@@ -51,5 +50,4 @@ export default theme => ({
         top: 0,
         right: 0
     },
-    
 })

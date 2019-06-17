@@ -69,7 +69,7 @@ class Item extends Component {
                 /> : null}
              <CardMedia
                 className= {classes.cardMedia}
-                style={itemType ? {borderRadius: '50%'} : {borderRadius: 20}} 
+                style={itemType ? {borderRadius: '50%', alignItems: 'center'} : {borderRadius: 20}} 
                 image={this.props.image}
                 onMouseEnter={this.dialogBoxOpen} 
                 onClick={this.dialogBoxOpen} 
