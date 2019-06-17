@@ -1,7 +1,7 @@
 export default styles => ({
         root:{
             margin: '20px 0',
-            justify: 'space-between',
+            justifyContent: 'space-between',
             alignItems:'center',
         },
         button:{

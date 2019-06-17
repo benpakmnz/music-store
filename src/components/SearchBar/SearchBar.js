@@ -44,13 +44,13 @@ class SearchBar extends Component{
                 </Grid>
                 <Grid item> 
                     <Button 
-                        size="small" variant="contained"
+                        size="medium" variant="contained"
                         className={classes.button} 
                         color="primary" 
                         onClick = {event => this.onSubmit(event)}>search
                     </Button>
                     <Button 
-                        size="small" 
+                        size="medium" 
                         variant="outlined" 
                         aria-label="Add" 
                         className={classes.button} 

@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import Item from '../Item/Item';
 import SearchBar from '../SearchBar/SearchBar';
+
 import { Typography }  from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { GridList , Container}  from '@material-ui/core';
 import styles from './ListStyle'; 
 
-class List extends Component{
-  handleDelete = (lsType, index) => {
-    this.props.remove(lsType, index)
-  }
 
-  handleDuplicate = (lsType, index) => {
-    this.props.dulipcate(lsType, index)
-  }
-
+class List extends Component{   
   render(){ 
     const { classes } = this.props;
     return (
       <Container className={classes.root}>
-        <Typography variant="h2" color="commonBlack">{this.props.title}</Typography>
+        <Typography variant="h2">{this.props.title}</Typography>
         <SearchBar listType = {this.props.title === 'Vinyl Records' ? 'Vinyl Records' : 'Cd'}/>
         <GridList className={classes.gridList}>
             {this.props.listItems.map((item, index) => 
@@ -27,7 +21,7 @@ class List extends Component{
                   listType={this.props.title}
                   listTitle = {this.props.title}
                   key = {index}
-                  i = {index}
+                  indexItem = {index}
                   genre={item.genre}
                   artist_image={item.artist_image}
                   artist_name={item.artist_name}
@@ -45,3 +39,4 @@ class List extends Component{
 
 
 export default withStyles(styles)(List);
+

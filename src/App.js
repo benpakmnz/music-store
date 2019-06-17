@@ -4,6 +4,7 @@ import * as actionCreators from './store/actions/index';
 import List from './components/List/List'
 import Data from './utilites/data';
 
+
 class App extends Component{
   componentDidMount(){
     this.props.storeInitialData(Data.vinyl_records, 'records')
@@ -13,6 +14,7 @@ class App extends Component{
 render(){
   return (
     <div className="App">
+
       <List listItems= { 
         this.props.filteredRecordLs.length > 0 ? 
         this.props.filteredRecordLs : 

@@ -48,5 +48,5 @@ export default theme => ({
         justifyContent: 'center',
         top: 0,
         right: 0
-    }
+    },
 })

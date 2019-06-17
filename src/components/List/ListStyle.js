@@ -1,6 +1,6 @@
 export default theme => ({
         root:{
-          margin: '30px 0'
+          margin: '30px auto'
         },
         gridList: {
           justifyContent: 'space-between',
@@ -10,5 +10,5 @@ export default theme => ({
           [theme.breakpoints.up('sm')]: {
             flexWrap: 'wrap',
           },
-        }
+        },
       });

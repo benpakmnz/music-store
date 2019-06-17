@@ -1,33 +1,36 @@
 import React, { Component } from 'react';
-import { CardMedia , Avatar, Typography , Chip , Grid, Button }  from '@material-ui/core';
+import { CardMedia , Avatar, Typography , Chip , Grid }  from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { Button }  from '@material-ui/core';
+import * as actionCreators from '../../store/actions/index';
 import FileCopy from '@material-ui/icons/FileCopy';
-import styles from './ItemStyle';
-import SimpleModal from '../Modal/SimpleModal'
-
+import styles from './ItemStyle'
 
 class Item extends Component {
     constructor(props){
         super(props);
         this.state= {
-            dialogBoxVisable: false,
-            modalType: '',
-            open: false,
-            checked: false
+            dialogBoxVisable: false
         }
     }
-    modalOpen = (type) => {
-        this.setState({  modalType: type, open: true })
+
+    dialogBoxOpen = () => {
+        this.setState({
+            dialogBoxVisable: true
+        })
     }
 
-    modalClose = () => {
-        this.setState({  open: false })
-    }
-    dialogBoxOpen = () => {
-        this.setState({ dialogBoxVisable: true })
-    }
     dialogBoxClose = () => {
-        this.setState({ dialogBoxVisable: false })
+        this.setState({
+            dialogBoxVisable: false
+        })
+    }
+
+    dialogBoxHandler = (handleType ,listType, index ) => {
+        this.dialogBoxClose()
+        handleType === 'remove'? 
+        this.props.itemRemove(listType , index) : this.props.itemDuplicate(listType , index)
     }
 
     dialogBox = () => {
@@ -37,37 +40,26 @@ class Item extends Component {
             <Button color="primary" 
                     className={classes.button} 
                     variant="contained" aria-label="Add" 
-                    onClick={() => this.modalOpen('duplicate')}>
-                    <FileCopy/>
+                    onClick= {() => this.dialogBoxHandler('duplicate' , this.props.listTitle , this.props.i)}>
+            <FileCopy/>
             </Button>
             <Button color="default" 
                     className={classes.button}
                     variant="contained" 
                     aria-label="Add" 
-                    onClick={() => this.modalOpen('remove')}>
+                    onClick= {() => this.dialogBoxHandler('remove' , this.props.listTitle , this.props.i)}>
                         delete
             </Button>
         </Grid>
       )
     }
-   
+
     render(){
         const { classes } = this.props;
         const itemType = this.props.listType === 'Cds'
         return(
-                
-        <li>
-            {this.state.open ?
-            <SimpleModal 
-                close={this.modalClose}
-                modalType={this.state.modalType}
-                listTitle={this.props.listTitle}
-                indexItem={this.props.indexItem}
-                image={this.props.image}
-                name={this.props.name}
-                artist_name={this.props.artist_name}
-                /> : null}
-             <CardMedia
+        <li>   
+            <CardMedia
                 className= {classes.cardMedia}
                 style={itemType ? {borderRadius: '50%'} : {borderRadius: 20}} 
                 image={this.props.image}
@@ -101,4 +93,11 @@ class Item extends Component {
 }
 }
 
-  export default (withStyles(styles)(Item));
+const mapDispatchToProps = dispatch => {
+    return {
+        itemRemove: (lsType, index) => dispatch(actionCreators.itemRemove(lsType, index)),
+        itemDuplicate: (lsType, index) => dispatch(actionCreators.itemDuplicate(lsType, index)) 
+    }
+  }
+ 
+  export default connect('', mapDispatchToProps)(withStyles(styles)(Item));
