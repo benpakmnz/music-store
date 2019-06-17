@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/music-store/static/css/main.24c8b629.chunk.css",
-    "main.js": "/music-store/static/js/main.e84f28b8.chunk.js",
-    "main.js.map": "/music-store/static/js/main.e84f28b8.chunk.js.map",
+    "main.css": "/music-store/static/css/main.34de6062.chunk.css",
+    "main.js": "/music-store/static/js/main.fe8f3fe8.chunk.js",
+    "main.js.map": "/music-store/static/js/main.fe8f3fe8.chunk.js.map",
     "runtime~main.js": "/music-store/static/js/runtime~main.6d10df8e.js",
     "runtime~main.js.map": "/music-store/static/js/runtime~main.6d10df8e.js.map",
-    "static/js/2.135519ad.chunk.js": "/music-store/static/js/2.135519ad.chunk.js",
-    "static/js/2.135519ad.chunk.js.map": "/music-store/static/js/2.135519ad.chunk.js.map",
+    "static/js/2.1c2bf9ff.chunk.js": "/music-store/static/js/2.1c2bf9ff.chunk.js",
+    "static/js/2.1c2bf9ff.chunk.js.map": "/music-store/static/js/2.1c2bf9ff.chunk.js.map",
     "index.html": "/music-store/index.html",
-    "precache-manifest.caf83b105edabacfa42377bfd6a3824e.js": "/music-store/precache-manifest.caf83b105edabacfa42377bfd6a3824e.js",
+    "precache-manifest.c4962a51a5f26f6db76542af7383a380.js": "/music-store/precache-manifest.c4962a51a5f26f6db76542af7383a380.js",
     "service-worker.js": "/music-store/service-worker.js",
-    "static/css/main.24c8b629.chunk.css.map": "/music-store/static/css/main.24c8b629.chunk.css.map"
+    "static/css/main.34de6062.chunk.css.map": "/music-store/static/css/main.34de6062.chunk.css.map"
   }
 }
