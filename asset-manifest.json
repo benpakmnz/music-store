@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/music-store/static/css/main.a53be431.chunk.css",
-    "main.js": "/music-store/static/js/main.5a7e80d2.chunk.js",
-    "main.js.map": "/music-store/static/js/main.5a7e80d2.chunk.js.map",
+    "main.js": "/music-store/static/js/main.7739b2a6.chunk.js",
+    "main.js.map": "/music-store/static/js/main.7739b2a6.chunk.js.map",
     "runtime~main.js": "/music-store/static/js/runtime~main.6d10df8e.js",
     "runtime~main.js.map": "/music-store/static/js/runtime~main.6d10df8e.js.map",
     "static/js/2.15da5817.chunk.js": "/music-store/static/js/2.15da5817.chunk.js",
     "static/js/2.15da5817.chunk.js.map": "/music-store/static/js/2.15da5817.chunk.js.map",
     "index.html": "/music-store/index.html",
-    "precache-manifest.cef61af121bc675cfd4738576bbf0df4.js": "/music-store/precache-manifest.cef61af121bc675cfd4738576bbf0df4.js",
+    "precache-manifest.f95a9a0f0d3ebf5e0347997b500a265d.js": "/music-store/precache-manifest.f95a9a0f0d3ebf5e0347997b500a265d.js",
     "service-worker.js": "/music-store/service-worker.js",
     "static/css/main.a53be431.chunk.css.map": "/music-store/static/css/main.a53be431.chunk.css.map"
   }
