@@ -20,15 +20,17 @@ export default theme => ({
         [theme.breakpoints.up('xs')]: {height: '55vh',width: '92vw'},
         [theme.breakpoints.up('sm')]: {height: 400, width: '380px', marginRight: 0},
         margin: '0 20px 30px 0' 
-        
     },
+
     avatar:{
         height: 50,
         width: 50,
     },
+
     itemCdData:{
         width: '110px!important',
     },
+
     itemData:{
         display:'flex',
         justifyContent: 'space-between',
@@ -49,4 +51,5 @@ export default theme => ({
         top: 0,
         right: 0
     },
+    
 })

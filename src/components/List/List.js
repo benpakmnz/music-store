@@ -6,6 +6,7 @@ import { Typography }  from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { GridList , Container}  from '@material-ui/core';
 import styles from './ListStyle'; 
+import './List.scss'
 
 
 class List extends Component{   
